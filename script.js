@@ -23,7 +23,7 @@ const PATTERNS = [
       {
         num: "1-3",
         q_en: "Hi, can you help me? I can't find my seat. Here is my ticket. Where should I go?",
-        audioFile: "audio/p1_q1(seat).mp3",
+        audioFile: "audio/p1_q3(seat).mp3",
         imageFile: null,
         imageLabel: "会場マップ（Gate A / Gate B・白線）",
         hint_jp: "白線の突き当たりを左へ。Gate B からご入場ください。"
@@ -78,7 +78,7 @@ const PATTERNS = [
         num: "3-2",
         q_en: "I forgot my phone inside the stadium! Let me go back in through this exit gate!",
         audioFile: "audio/p3_q2(exitonly).mp3",
-        imageFile: "img/exit only.png",
+        imageFile: "img/exitonly.png",
         imageLabel: null,
         hint_jp: "ここは出口専用ゲートです。正面入口からスタッフにお申し出ください。"
       },
