@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AOS 英会話試験</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-brand">
+    <div class="header-badge">
+  <img src="/img/logo.png" style="width:38px;height:38px;object-fit:contain;">
+</div>
+    <div class="brand-text">
+      <span class="brand-main">AOS EN TEST</span>
+      <span class="brand-sub">AOS 英会話試験</span>
+    </div>
+  </div>
+  <nav>
+    <button class="nav-btn active" id="nav-list" onclick="showPage('list')">問題一覧</button>
+    <button class="nav-btn-start" id="nav-exam" onclick="showPage('exam')">Start →</button>
+  </nav>
+</header>
+
+<!-- ════════════ PAGE: 問題一覧 ════════════ -->
+<div class="page active" id="page-list">
+  <main>
+    <div class="section-header">
+      <h1 class="section-title">問題一覧</h1>
+      <span class="section-meta">4 パターン — 各 3 問 — 計 12 問</span>
+    </div>
+    <div id="list-content"></div>
+  </main>
+</div>
+
+<!-- ════════════ PAGE: 試験 ════════════ -->
+<div class="page" id="page-exam">
+  <main>
+    <div class="section-header">
+      <h1 class="section-title">今回の出題</h1>
+    </div>
+    <div id="exam-content"></div>
+  </main>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
