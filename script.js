@@ -575,8 +575,8 @@ function submitReading() {
 　　  listening: selected.map(s => s.q.num).join("　"),
 　　  reading:   `${correctCount} / 6`
 　　});
-　　fetch("https://script.google.com/macros/s/AKfycbxN9btDN8caxtD2x82zOkkTEgHVkLZceQoqM5kyHUhbiPr1On4DDloil7YeevEU0ooowg/exec?" + params.toString());
-   
+　　fetch("https://script.google.com/macros/s/AKfycbyqSM5CKRJWWtocsDVa5Y80WouvVh68oBkkXaDTFHkFeSe4wp16GseJM-DqedWGH7PlRw/exec" + params.toString());
+           
   document.getElementById('reading-results').style.display = 'block';
 }
 
