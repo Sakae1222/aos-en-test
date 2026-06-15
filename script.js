@@ -569,13 +569,13 @@ function submitReading() {
   const now2 = new Date();
   const dateStr = `${now2.getFullYear()}.${String(now2.getMonth()+1).padStart(2,'0')}.${String(now2.getDate()).padStart(2,'0')}`;
 
-　　const params = new URLSearchParams({
-　　  date:      dateStr,
-　　  name:      studentName,
-　　  listening: selected.map(s => s.q.num).join("　"),
-　　  reading:   `${correctCount} / 6`
+  const params = new URLSearchParams({
+     date:      dateStr,
+     name:      studentName,
+     listening: selected.map(s => s.q.num).join("　"),
+     reading:   `${correctCount} / 6`
 　　});
-　　fetch("https://script.google.com/macros/s/AKfycbyqSM5CKRJWWtocsDVa5Y80WouvVh68oBkkXaDTFHkFeSe4wp16GseJM-DqedWGH7PlRw/exec" + params.toString());
+　　fetch("https://script.google.com/macros/s/AKfycbxnlgoL21Kc289Pyf1ZbH4Zu4TsAwVQNXCpvmFTTueuh5JZBCEA2X9Kd5Scvht_bfyXEA/exec?" + params.toString());
            
   document.getElementById('reading-results').style.display = 'block';
 }
