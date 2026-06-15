@@ -1,3 +1,6 @@
+/* ══════════════════════════════════════════
+   LISTENING DATA
+══════════════════════════════════════════ */
 const PATTERNS = [
   {
     id: 1,
@@ -5,28 +8,28 @@ const PATTERNS = [
     name: "道案内 · Wayfinding",
     questions: [
       {
-        num: "1-1",
+        num: "L-1-1",
         q_en: "Excuse me, I need to use the restroom. Can you tell me how to get there?",
         audioFile: "audio/p1_q1(restroom).mp3",
         imageFile: "img/restroom.png",
-        imageLabel: "会場マップ（トイレ・売店・案内所）",
-        hint_jp: "直進して右手の売店を通り過ぎ、左側にトイレが見えます。"
+        imageLabel: "会場マップ（トイレ・売店）",
+        hint_jp: "途中の目印も説明するとわかりやすい"
       },
       {
-        num: "1-2",
+        num: "L-1-2",
         q_en: "Hello, I'm looking for the information counter. Which way should I go?",
         audioFile: "audio/p1_q2(ic).mp3",
         imageFile: "img/ic.png",
-        imageLabel: "会場マップ（案内所・ゲート）",
-        hint_jp: "真っ直ぐ進んで最初の交差点を右へ。案内所はゲートの隣です。"
+        imageLabel: "会場マップ（案内所）",
+        hint_jp: "何番目の交差点で曲がる／目的地は左か右か"
       },
       {
-        num: "1-3",
+        num: "L-1-3",
         q_en: "Hi, can you help me? I can't find my seat. Here is my ticket. Where should I go?",
         audioFile: "audio/p1_q3(seat).mp3",
-        imageFile: null,
-        imageLabel: "会場マップ（Gate A / Gate B・白線）",
-        hint_jp: "白線の突き当たりを左へ。Gate B からご入場ください。"
+        imageFile: "img/seat.png",
+        imageLabel: "座席表",
+        hint_jp: "ここは○○／○○から入場"
       }
     ]
   },
@@ -36,28 +39,28 @@ const PATTERNS = [
     name: "現状紹介 · Introduction",
     questions: [
       {
-        num: "2-1",
+        num: "L-2-1",
         q_en: "Excuse me, what game is being played inside? Is this the basketball arena?",
         audioFile: "audio/p2_q1(game).mp3",
         imageFile: "img/game.png",
         imageLabel: "会場全景（メインスタジアム + バスケットボールアリーナ）",
-        hint_jp: "ここはメインスタジアム（陸上競技）です。バスケアリーナはあちらの建物です。"
+        hint_jp: "この建物の説明／やっている競技（陸上）／バスケアリーナへの案内"
       },
       {
-        num: "2-2",
+        num: "L-2-2",
         q_en: "Excuse me, what is this long line for? Is this the way into the stadium?",
         audioFile: "audio/p2_q2(line).mp3",
         imageFile: "img/goods.png",
-        imageLabel: "会場外観（グッズ販売列 + メインゲート）",
-        hint_jp: "この列はグッズ購入専用です。入場はあちらへどうぞ。"
+        imageLabel: "会場外観（グッズ販売列）",
+        hint_jp: "この列の説明／スタジアム的場所案内"
       },
       {
-        num: "2-3",
+        num: "L-2-3",
         q_en: "Excuse me! Is the shuttle bus to the main station still running? The line over there is not moving at all!",
-        audioFile: "audio/p2_q3(bus).mp3",
+        audioFile: "audio/p4_q3(bus).mp3",
         imageFile: "img/bus.png",
         imageLabel: "会場外観（バス乗り場 + 地下鉄駅入口）",
-        hint_jp: "バスは渋滞で遅延中です。急ぎの方は地下鉄をお勧めします。"
+        hint_jp: "バスはまだある／渋滞で遅れている／急ぎの人は地下鉄を案内"
       }
     ]
   },
@@ -67,28 +70,28 @@ const PATTERNS = [
     name: "現場規制・アクセス制限 · Access Control",
     questions: [
       {
-        num: "3-1",
+        num: "L-3-1",
         q_en: "Hey, I have a ticket. I just want to go in from here.",
         audioFile: "audio/p3_q1(ticket).mp3",
         imageFile: "img/ticket.png",
         imageLabel: null,
-        hint_jp: "こちらの入口は別の種類のチケットをお持ちの方専用です。"
+        hint_jp: "この入口は別チケット専用"
       },
       {
-        num: "3-2",
+        num: "L-3-2",
         q_en: "I forgot my phone inside the stadium! Let me go back in through this exit gate!",
         audioFile: "audio/p3_q2(exitonly).mp3",
         imageFile: "img/exitonly.png",
         imageLabel: null,
-        hint_jp: "ここは出口専用ゲートです。正面入口からスタッフにお申し出ください。"
+        hint_jp: "ここは出口専用／正面入口へ案内"
       },
       {
-        num: "3-3",
+        num: "L-3-3",
         q_en: "Look at the picture and respond appropriately.",
         audioFile: "audio/p3_q3(photo).mp3",
         imageFile: "img/authorizedonly.png",
         imageLabel: "関係者以外立入禁止（看板 + 侵入しようとする人物）",
-        hint_jp: "このエリアは関係者専用です。特別通行証のない方は入れません。"
+        hint_jp: "このエリアは関係者専用／通行証なしNG"
       }
     ]
   },
@@ -98,7 +101,7 @@ const PATTERNS = [
     name: "緊急時案内 · Emergency",
     questions: [
       {
-        num: "4-1",
+        num: "L-4-1",
         q_en: "Oh my god! The alarm is ringing! Where should we go?! Is it safe to run?!",
         audioFile: "audio/p4_q1(alarm).mp3",
         imageFile: "img/alarm.png",
@@ -106,24 +109,110 @@ const PATTERNS = [
         hint_jp: "落ち着いてください。走らずに、指示に従って最寄りの出口へゆっくり歩いてください。"
       },
       {
-        num: "4-2",
+        num: "L-4-2",
         q_en: "Help! Someone passed out over here! He's not moving! What should we do?!",
         audioFile: "audio/p4_q2(help).mp3",
-        imageFile: null,
+        imageFile: "img/help.png",
         imageLabel: null,
         hint_jp: "後ろに下がってスペースを確保してください。今すぐ救護チームを呼びます。"
       },
       {
-        num: "4-3",
+        num: "L-4-3",
         q_en: "Excuse me! There is a strange black bag left under that bench. Nobody is around it. Is it dangerous?",
         audioFile: "audio/p4_q3(strange).mp3",
-        imageFile: null,
+        imageFile: "img/strange.png",
         imageLabel: null,
-        hint_jp: "そのバッグに触れないでください。離れてお待ちください。すぐに警備本部へ報告します。"
+        hint_jp: "そのバッグに触れないでください。すぐに警備本部へ報告します。"
       }
     ]
   }
 ];
+
+/* ══════════════════════════════════════════
+   READING DATA
+══════════════════════════════════════════ */
+const READING_STANDALONE = [
+  {
+    num: "R-1",
+    scenario: "You are working at the venue entrance. A visitor shows you a ticket, but it is for yesterday's event. The ticket is not valid for today. You should politely explain the situation and direct him to the ticket counter for assistance.",
+    question: "What should you do with this visitor?",
+    options: [
+      "Let him in because he has a ticket.",
+      "Tell him to come back tomorrow.",
+      "Send him to the ticket counter and explain his ticket is not for today.",
+      "Call the police immediately."
+    ],
+    correct: "C"
+  },
+  {
+    num: "R-2",
+    scenario: "You are patrolling near the athlete zone. A person without a staff badge tries to walk in. You ask for his pass, but he says he left it at the hotel. You must not allow anyone without proper identification to enter this area.",
+    question: "What is the main reason you cannot let this person in?",
+    options: [
+      "He does not have the right ticket type.",
+      "He is trying to enter through the wrong gate.",
+      "He cannot prove he is authorized to enter.",
+      "His pass may have already expired."
+    ],
+    correct: "C"
+  },
+  {
+    num: "R-3",
+    scenario: "A visitor comes to you and says she cannot find her child. The child is about 8 years old and was last seen near the souvenir shop. You should contact the lost child center right away and stay with the visitor until help arrives.",
+    question: "What should you do first?",
+    options: [
+      "Search the entire venue by yourself.",
+      "Tell the visitor to look around on her own.",
+      "Wait 10 minutes before taking action.",
+      "Immediately inform the lost child center."
+    ],
+    correct: "D"
+  }
+];
+
+const READING_PASSAGE = `You are working at a large sports stadium. During a game, the weather suddenly changes, and a heavy storm begins. The organizers decide to stop the game for safety reasons. An announcement is made: "Due to bad weather, the game is suspended. Please leave the stadium calmly and follow the staff's instructions." Your job is to stand near one of the main exits and guide people out. You should tell them, "Please use this exit. Do not run. Watch your step." If you see someone who needs help — for example, an elderly person or someone with a small child — you should offer assistance. After everyone has left your area, you must report to your supervisor that your section is clear.`;
+
+const READING_PASSAGE_QS = [
+  {
+    num: "R-4",
+    question: "Why is the game stopped?",
+    options: [
+      "Because the home team is losing.",
+      "Because the weather has become dangerous.",
+      "Because the stadium is too crowded.",
+      "Because the players are tired."
+    ],
+    correct: "B"
+  },
+  {
+    num: "R-5",
+    question: "What is your main responsibility during the evacuation?",
+    options: [
+      "Sell umbrellas to the visitors.",
+      "Stand near an exit and guide people out safely.",
+      "Continue watching the game from your post.",
+      "Tell people to stay in their seats."
+    ],
+    correct: "B"
+  },
+  {
+    num: "R-6",
+    question: "What should you do if you see an elderly person having trouble leaving?",
+    options: [
+      "Tell them to hurry up.",
+      "Ignore them and focus on the crowd.",
+      "Make sure they can get out safely.",
+      "Ask them to wait until everyone else has left."
+    ],
+    correct: "C"
+  }
+];
+
+const ALL_READING = [...READING_STANDALONE, ...READING_PASSAGE_QS];
+const LETTERS = ["A", "B", "C", "D"];
+
+let readingAnswers   = {};
+let readingSubmitted = false;
 
 /* ══════════════════════════════════════════
    AUDIO
@@ -148,7 +237,7 @@ function toggleAudio(file, btn) {
 }
 
 function audioBtn(q, prefix) {
-  const id = `ab-${prefix}-${q.num.replace('-','_')}`;
+  const id = `ab-${prefix}-${q.num.replace(/-/g,'_')}`;
   if (!q.audioFile) {
     return `<button class="audio-btn no-file" title="音声未設定">
       <span class="tip">音声未設定</span>
@@ -167,7 +256,7 @@ function audioBtn(q, prefix) {
 }
 
 /* ══════════════════════════════════════════
-   IMAGE PLACEHOLDER / TAG
+   IMAGE
 ══════════════════════════════════════════ */
 function imgBlock(q) {
   if (!q.imageFile && !q.imageLabel) return '';
@@ -217,11 +306,49 @@ function renderList() {
     });
     html += `</div>`;
   });
+
+  html += `
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <span class="section-divider-text">Reading — 読解問題</span>
+    <div class="section-divider-line"></div>
+  </div>`;
+
+  READING_STANDALONE.forEach(q => { html += readingListItem(q); });
+  html += `<div class="passage-wrap">
+    <div class="passage-label">Passage — R-4 〜 R-6</div>
+    <div class="passage-text">${READING_PASSAGE}</div>
+  </div>`;
+  READING_PASSAGE_QS.forEach(q => { html += readingListItem(q); });
+
   document.getElementById('list-content').innerHTML = html;
 }
 
+function readingListItem(q) {
+  const optionsHtml = q.options.map((opt, i) => {
+    const letter = LETTERS[i];
+    const isCorrect = letter === q.correct;
+    return `<div class="r-option ${isCorrect ? 'r-option-correct' : ''}">
+      <span class="r-option-letter">${letter}</span>
+      <span class="r-option-text">${opt}</span>
+      ${isCorrect ? '<span class="r-correct-mark">✓</span>' : ''}
+    </div>`;
+  }).join('');
+
+  return `<div class="q-item">
+    <div class="q-inner">
+      <div class="q-num-label">${q.num}</div>
+      <div class="q-body">
+        ${q.scenario ? `<div class="scenario-block">${q.scenario}</div>` : ''}
+        <div class="r-question">${q.question}</div>
+        <div class="r-options-list">${optionsHtml}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
 /* ══════════════════════════════════════════
-   RENDER: 試験
+   RENDER: 試験（Listening）
 ══════════════════════════════════════════ */
 let selected = [];
 
@@ -233,38 +360,27 @@ function pick() {
 }
 
 function renderExam() {
+  const nameInput = document.getElementById('student-name');
+  if (nameInput) nameInput.value = '';
   pick();
   buildExam();
 }
 
 function reshuffle() {
   if (currentAudio) { currentAudio.pause(); currentAudio = null; currentBtn = null; }
+
+  const nameInput = document.getElementById('student-name');
+  if (nameInput) nameInput.value = '';
+  
   pick();
   buildExam();
 }
 
 function buildExam() {
-  const now = new Date();
+  const now  = new Date();
   const date = `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}  ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
 
-  const summaryText = selected.map((s,i) =>
-    `${s.q.num}`
-  ).join(' ');
-
   let html = `
-  <div class="exam-summary-wrap">
-    <div class="collapsible-header" onclick="toggleCollapsible('summary')">
-      <span class="collapsible-label">抽選結果（コピー用）</span>
-      <span class="collapsible-toggle" id="summary-toggle">▼ 開く</span>
-    </div>
-    <div class="collapsible-body" id="summary-body">
-      <div class="collapsible-inner">
-        <div class="summary-text" id="summary-text">${summaryText}</div>
-        <button class="copy-btn" id="copy-btn" onclick="copySummary()">コピー</button>
-      </div>
-    </div>
-  </div>
-
   <div class="exam-actions">
     <span class="exam-date">${date}</span>
     <button class="reshuffle-btn" onclick="reshuffle()">
@@ -279,7 +395,7 @@ function buildExam() {
   <div class="exam-cards">`;
 
   selected.forEach((s, i) => {
-    const q = s.q;
+    const q      = s.q;
     const hintId = `hint-${i}`;
     html += `
     <div class="exam-card">
@@ -299,14 +415,165 @@ function buildExam() {
         </div>
         <div class="exam-card-right">
           ${audioBtn(q, 'exam')}
-          <button class="hint-toggle-btn" onclick="toggleHint('${hintId}', this)" title="ヒントを見る">Hint</button>
+          <button class="hint-toggle-btn" onclick="toggleHint('${hintId}', this)">Hint</button>
         </div>
       </div>
     </div>`;
   });
 
   html += `</div>`;
+  html += buildReadingExam();
   document.getElementById('exam-content').innerHTML = html;
+}
+
+/* ══════════════════════════════════════════
+   RENDER: 試験（Reading）
+══════════════════════════════════════════ */
+function buildReadingExam() {
+  readingAnswers   = {};
+  readingSubmitted = false;
+
+  let html = `
+  <div class="section-divider" style="margin-top:3rem">
+    <div class="section-divider-line"></div>
+    <span class="section-divider-text">Reading — 読解問題</span>
+    <div class="section-divider-line"></div>
+  </div>`;
+
+  READING_STANDALONE.forEach(q => { html += readingExamItem(q); });
+  html += `<div class="passage-wrap">
+    <div class="passage-label">Passage — R-4 〜 R-6</div>
+    <div class="passage-text">${READING_PASSAGE}</div>
+  </div>`;
+  READING_PASSAGE_QS.forEach(q => { html += readingExamItem(q); });
+
+  // 採点ボタン
+  html += `
+  <div class="reading-submit-area">
+    <button class="reading-submit-btn" id="reading-submit-btn" onclick="submitReading()" disabled>
+      採点する
+    </button>
+  </div>`;
+
+  //  結果
+  html += `
+  <div class="reading-results" id="reading-results" style="display:none; margin-top: 2rem;">
+    
+    <div class="exam-summary-wrap" style="border: 1px solid var(--navy); border-radius: 4px; background: var(--white); overflow: hidden;">
+      
+      <div id="simple-score-title" style="padding: 1.25rem; background-color: var(--navy-pale); font-weight: bold; font-size: 15px; color: var(--navy-deep);">
+      </div>
+
+      <!-- コピー用 -->
+      <div class="collapsible-header" onclick="toggleCollapsible('simple-copy')" style="background: var(--paper); border-top: 1px solid var(--rule);">
+        <span class="collapsible-label" style="color: var(--ink-mid); font-weight: 500;">Excel 管理用データ</span>
+        <span class="collapsible-toggle" id="simple-copy-toggle">▼ 開く</span>
+      </div>
+      <div class="collapsible-body" id="simple-copy-body">
+        <div class="collapsible-inner" style="padding: 1.25rem; background: var(--white); display: flex; flex-direction: column; gap: 1rem;">
+          
+          <div id="excel-pure-data" style="display:none; white-space: pre;"></div>
+          
+          <div id="excel-visual-row" style="font-family: monospace; font-size: 13px; color: var(--ink-mid); background: var(--paper); padding: 0.75rem; border: 1px dashed var(--rule); border-radius: 4px; overflow-x: auto;"></div>
+          
+          <button class="copy-btn" id="simple-copy-btn" onclick="copyPureData()" style="width:100%; max-width:200px;">コピー</button>
+        </div>
+      </div>
+
+    </div>
+  </div>`;
+
+  return html;
+}
+
+function readingExamItem(q) {
+  const optionsHtml = q.options.map((opt, i) => {
+    const letter = LETTERS[i];
+    return `<button class="r-exam-btn" id="rbtn-${q.num}-${letter}"
+      onclick="selectAnswer('${q.num}','${letter}')">
+      <span class="r-exam-letter">${letter}</span>
+      <span class="r-exam-text">${opt}</span>
+    </button>`;
+  }).join('');
+
+  return `<div class="q-item" id="ritem-${q.num}">
+    <div class="q-inner">
+      <div class="q-num-label">${q.num}</div>
+      <div class="q-body">
+        ${q.scenario ? `<div class="scenario-block">${q.scenario}</div>` : ''}
+        <div class="r-question">${q.question}</div>
+        <div class="r-exam-options">${optionsHtml}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function selectAnswer(num, letter) {
+  if (readingSubmitted) return;
+  readingAnswers[num] = letter;
+
+  LETTERS.forEach(l => {
+    const btn = document.getElementById(`rbtn-${num}-${l}`);
+    if (btn) btn.classList.toggle('selected', l === letter);
+  });
+
+  const allAnswered = ALL_READING.every(q => readingAnswers[q.num]);
+  const submitBtn   = document.getElementById('reading-submit-btn');
+  if (submitBtn) {
+    submitBtn.disabled     = !allAnswered;
+    submitBtn.textContent  = allAnswered
+      ? '採点する →'
+      : `採点する（${Object.keys(readingAnswers).length} / 6）`;
+  }
+}
+
+function submitReading() {
+  readingSubmitted = true;
+  document.getElementById('reading-submit-btn').style.display = 'none';
+
+  const nameInput = document.getElementById('student-name');
+  const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : "未入力";
+
+  let correctCount = 0;
+  ALL_READING.forEach(q => {
+    const chosen    = readingAnswers[q.num];
+    const isCorrect = chosen === q.correct;
+    if (isCorrect) correctCount++;
+
+    LETTERS.forEach(l => {
+      const btn = document.getElementById(`rbtn-${q.num}-${l}`);
+      if (!btn) return;
+      btn.disabled = true;
+      if (l === q.correct)          btn.classList.add('r-correct');
+      else if (l === chosen && !isCorrect) btn.classList.add('r-wrong');
+    });
+  });
+
+
+  const rate = Math.round((correctCount / 6) * 100);
+  document.getElementById('simple-score-title').textContent = `【${studentName}】様の採点結果: 6問中 ${correctCount}問 正解 (正答率: ${rate}%)`;
+
+ 
+  const listeningTabs = selected.map(s => s.q.num).join('\t');
+  const readingTabs   = ALL_READING.map(q => readingAnswers[q.num] || '—').join('\t');
+  
+  const rawDataLine = `${studentName}\t${listeningTabs}\t${readingTabs}\t${rate}%`;
+  document.getElementById('excel-pure-data').textContent = rawDataLine;
+
+
+  document.getElementById('excel-visual-row').textContent = `${studentName} | ${selected.map(s => s.q.num).join(' | ')} | ${ALL_READING.map(q => readingAnswers[q.num]||'—').join(' | ')} | ${rate}%`;
+
+  document.getElementById('reading-results').style.display = 'block';
+}
+
+function copyPureData() {
+  const text = document.getElementById('excel-pure-data').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('simple-copy-btn');
+    btn.textContent = '✓ コピー完了';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'コピー'; btn.classList.remove('copied'); }, 2000);
+  });
 }
 
 /* ══════════════════════════════════════════
@@ -324,16 +591,6 @@ function toggleHint(id, btn) {
   const isOpen = area.classList.toggle('open');
   btn.style.borderColor = isOpen ? 'var(--gold)' : '';
   btn.style.color       = isOpen ? 'var(--gold)' : '';
-}
-
-function copySummary() {
-  const text = document.getElementById('summary-text').innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById('copy-btn');
-    btn.textContent = '✓ 完了';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'コピー'; btn.classList.remove('copied'); }, 2000);
-  });
 }
 
 /* ══════════════════════════════════════════

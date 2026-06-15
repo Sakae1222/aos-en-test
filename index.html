@@ -7,19 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
-<style>
-
-
-</style>
 </head>
 <body>
 
 <header>
   <div class="header-brand">
     <div class="header-badge">
-  <img src="img/logo.png" style="width:38px;height:38px;object-fit:contain;">
-</div>
+      <img src="img/logo.png" style="width:38px;height:38px;object-fit:contain;">
+    </div>
     <div class="brand-text">
       <span class="brand-main">AOS EN TEST</span>
       <span class="brand-sub">AOS 英会話試験</span>
@@ -36,7 +31,7 @@
   <main>
     <div class="section-header">
       <h1 class="section-title">問題一覧</h1>
-      <span class="section-meta">4 パターン — 各 3 問 — 計 12 問</span>
+      <span class="section-meta">Listening 12問 + Reading 6問</span>
     </div>
     <div id="list-content"></div>
   </main>
@@ -48,11 +43,16 @@
     <div class="section-header">
       <h1 class="section-title">今回の出題</h1>
     </div>
+
+    <div class="student-info-wrap" style="background: var(--white); padding: 1.25rem; border: 1px solid var(--rule); border-radius: 4px; margin-bottom: 2rem;">
+      <label for="student-name" style="display: block; font-weight: 500; font-size: 13px; color: var(--ink-mid); margin-bottom: 0.5rem;">受験者氏名を入力してください：</label>
+      <input type="text" id="student-name" placeholder="例：警備 太郎" style="width: 100%; max-width: 300px; padding: 0.6rem; border: 1px solid var(--rule); border-radius: 4px; font-family: inherit; font-size: 14px; background: var(--paper);">
+    </div>
+
     <div id="exam-content"></div>
   </main>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
