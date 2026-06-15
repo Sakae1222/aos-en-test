@@ -1,4 +1,4 @@
-const SUBMIT_URL = "https://script.google.com/macros/s/AKfycbxN9btDN8caxtD2x82zOkkTEgHVkLZceQoqM5kyHUhbiPr1On4DDloil7YeevEU0ooowg/exec";
+const SUBMIT_URL = "https://script.google.com/macros/s/AKfycbyXHx-hnCHU3vy_ST3r6Im9-mKHrnCN0mpVBlkU7CuqEnRo13Ui_DJ1-mUyIcsA6NM/exec";
 
 /* ══════════════════════════════════════════
    LISTENING DATA
@@ -371,6 +371,7 @@ function renderExam() {
 function reshuffle() {
   if (currentAudio) { currentAudio.pause(); currentAudio = null; currentBtn = null; }
 
+  // 再抽選の時は名前入力ボックスを綺麗にクリアする
   const nameInput = document.getElementById('student-name');
   if (nameInput) nameInput.value = '';
   
@@ -457,7 +458,7 @@ function buildReadingExam() {
     </button>
   </div>`;
 
-  //  結果
+  // 結果
   html += `
   <div class="reading-results" id="reading-results" style="display:none; margin-top: 2rem;">
     
@@ -466,7 +467,6 @@ function buildReadingExam() {
       <div id="simple-score-title" style="padding: 1.25rem; background-color: var(--navy-pale); font-weight: bold; font-size: 15px; color: var(--navy-deep);">
       </div>
 
-      <!-- コピー用 -->
       <div class="collapsible-header" onclick="toggleCollapsible('simple-copy')" style="background: var(--paper); border-top: 1px solid var(--rule);">
         <span class="collapsible-label" style="color: var(--ink-mid); font-weight: 500;">Excel 管理用データ</span>
         <span class="collapsible-toggle" id="simple-copy-toggle">▼ 開く</span>
@@ -551,31 +551,34 @@ function submitReading() {
     });
   });
 
-
   const rate = Math.round((correctCount / 6) * 100);
   document.getElementById('simple-score-title').textContent = `【${studentName}】様の採点結果: 6問中 ${correctCount}問 正解 (正答率: ${rate}%)`;
 
- 
   const listeningTabs = selected.map(s => s.q.num).join('\t');
   const readingTabs   = ALL_READING.map(q => readingAnswers[q.num] || '—').join('\t');
   
   const rawDataLine = `${studentName}\t${listeningTabs}\t${readingTabs}\t${rate}%`;
   document.getElementById('excel-pure-data').textContent = rawDataLine;
 
-
   document.getElementById('excel-visual-row').textContent = `${studentName} | ${selected.map(s => s.q.num).join(' | ')} | ${ALL_READING.map(q => readingAnswers[q.num]||'—').join(' | ')} | ${rate}%`;
 
-  // Google Sheets に送信
+  // Google Sheets に送信するパラメータを作成
   const now2 = new Date();
   const dateStr = `${now2.getFullYear()}.${String(now2.getMonth()+1).padStart(2,'0')}.${String(now2.getDate()).padStart(2,'0')}`;
 
   const params = new URLSearchParams({
-     date:      dateStr,
-     name:      studentName,
-     listening: selected.map(s => s.q.num).join("　"),
-     reading:   `${correctCount} / 6`
-　　});
-　　fetch("https://script.google.com/macros/s/AKfycbxnlgoL21Kc289Pyf1ZbH4Zu4TsAwVQNXCpvmFTTueuh5JZBCEA2X9Kd5Scvht_bfyXEA/exec?" + params.toString());
+    date:      dateStr,
+    name:      studentName,
+    listening: selected.map(s => s.q.num).join(" "),
+    reading:   `${correctCount} / 6`,
+    rate:      `${rate}%`,          // 正答率を追加
+    rawdata:   rawDataLine          // Excel貼り付け用1行データも念のため自動送信に含める
+  });
+  
+  // 先頭で定義された SUBMIT_URL を使用して Google Sheets にデータを送信
+  fetch(SUBMIT_URL + "?" + params.toString(), { mode: 'no-cors' })
+    .then(() => console.log("Data synced to Google Sheets successfully."))
+    .catch(err => console.error("Sync failed:", err));
            
   document.getElementById('reading-results').style.display = 'block';
 }
