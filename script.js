@@ -1,3 +1,5 @@
+const SUBMIT_URL = "https://script.google.com/macros/s/AKfycbxN9btDN8caxtD2x82zOkkTEgHVkLZceQoqM5kyHUhbiPr1On4DDloil7YeevEU0ooowg/exec";
+
 /* ══════════════════════════════════════════
    LISTENING DATA
 ══════════════════════════════════════════ */
@@ -563,6 +565,20 @@ function submitReading() {
 
   document.getElementById('excel-visual-row').textContent = `${studentName} | ${selected.map(s => s.q.num).join(' | ')} | ${ALL_READING.map(q => readingAnswers[q.num]||'—').join(' | ')} | ${rate}%`;
 
+  // Google Sheets に送信
+  const now2 = new Date();
+  const dateStr = `${now2.getFullYear()}.${String(now2.getMonth()+1).padStart(2,'0')}.${String(now2.getDate()).padStart(2,'0')}`;
+
+fetch("https://script.google.com/macros/s/AKfycbxN9btDN8caxtD2x82zOkkTEgHVkLZceQoqM5kyHUhbiPr1On4DDloil7YeevEU0ooowg/exec", {
+  method: "POST",
+  body: JSON.stringify({
+    date:      dateStr,
+    name:      studentName,
+    listening: selected.map(s => s.q.num).join("　"),
+    reading:   `${correctCount} / 6`
+  })
+});
+   
   document.getElementById('reading-results').style.display = 'block';
 }
 
