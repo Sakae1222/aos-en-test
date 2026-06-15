@@ -59,7 +59,7 @@ const PATTERNS = [
       {
         num: "L-2-3",
         q_en: "Excuse me! Is the shuttle bus to the main station still running? The line over there is not moving at all!",
-        audioFile: "audio/p4_q3(bus).mp3",
+        audioFile: "audio/p2_q3(bus).mp3",
         imageFile: "img/bus.png",
         imageLabel: "会場外観（バス乗り場 + 地下鉄駅入口）",
         hint_jp: "バスはまだある／渋滞で遅れている／急ぎの人は地下鉄を案内"
