@@ -458,32 +458,37 @@ function buildReadingExam() {
     </button>
   </div>`;
 
-  // 結果
+  // 结果呈现与自动上传状态提示
   html += `
   <div class="reading-results" id="reading-results" style="display:none; margin-top: 2rem;">
-    
     <div class="exam-summary-wrap" style="border: 1px solid var(--navy); border-radius: 4px; background: var(--white); overflow: hidden;">
       
       <div id="simple-score-title" style="padding: 1.25rem; background-color: var(--navy-pale); font-weight: bold; font-size: 15px; color: var(--navy-deep);">
       </div>
 
+      <div id="upload-status-bar" style="padding: 11px 1.25rem; font-size: 13px; font-family: 'DM Mono', monospace; background: #fffde7; border-top: 1px solid var(--rule); color: #f57f17; display: flex; align-items: center; gap: 8px;">
+        <span class="spinner" style="display:inline-block; width:12px; height:12px; border:2px solid #f57f17; border-top-color:transparent; border-radius:50%; animation: spin 1s linear infinite;"></span>
+        Google スプレッドシートに自動保存中...
+      </div>
+
       <div class="collapsible-header" onclick="toggleCollapsible('simple-copy')" style="background: var(--paper); border-top: 1px solid var(--rule);">
-        <span class="collapsible-label" style="color: var(--ink-mid); font-weight: 500;">Excel 管理用データ</span>
+        <span class="collapsible-label" style="color: var(--ink-mid); font-weight: 500;">Excel 管理用データ（予備用手動コピー）</span>
         <span class="collapsible-toggle" id="simple-copy-toggle">▼ 開く</span>
       </div>
       <div class="collapsible-body" id="simple-copy-body">
         <div class="collapsible-inner" style="padding: 1.25rem; background: var(--white); display: flex; flex-direction: column; gap: 1rem;">
-          
           <div id="excel-pure-data" style="display:none; white-space: pre;"></div>
-          
           <div id="excel-visual-row" style="font-family: monospace; font-size: 13px; color: var(--ink-mid); background: var(--paper); padding: 0.75rem; border: 1px dashed var(--rule); border-radius: 4px; overflow-x: auto;"></div>
-          
           <button class="copy-btn" id="simple-copy-btn" onclick="copyPureData()" style="width:100%; max-width:200px;">コピー</button>
         </div>
       </div>
 
     </div>
-  </div>`;
+  </div>
+  
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>`;
 
   return html;
 }
@@ -529,13 +534,18 @@ function selectAnswer(num, letter) {
   }
 }
 
+/* ══════════════════════════════════════════
+   核心逻辑：计算并自动发送契合图片格式的数据
+══════════════════════════════════════════ */
 function submitReading() {
   readingSubmitted = true;
   document.getElementById('reading-submit-btn').style.display = 'none';
 
+  // 读取页面中您本来就写好的姓名输入框
   const nameInput = document.getElementById('student-name');
   const studentName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : "未入力";
 
+  // 1. 判定阅读题并上色
   let correctCount = 0;
   ALL_READING.forEach(q => {
     const chosen    = readingAnswers[q.num];
@@ -554,33 +564,39 @@ function submitReading() {
   const rate = Math.round((correctCount / 6) * 100);
   document.getElementById('simple-score-title').textContent = `【${studentName}】様の採点結果: 6問中 ${correctCount}問 正解 (正答率: ${rate}%)`;
 
-  const listeningTabs = selected.map(s => s.q.num).join('\t');
-  const readingTabs   = ALL_READING.map(q => readingAnswers[q.num] || '—').join('\t');
+  // 2. 严格按照您的表格图片格式进行数据拼装
+  // 结构：氏名(1列) + 听力随机生成的4道题号(4列) + 阅读学生选的答案(6列) + 正答率(1列)
+  const listeningCols = selected.map(s => s.q.num).join('\t');
+  const readingCols   = ALL_READING.map(q => readingAnswers[q.num] || '—').join('\t');
   
-  const rawDataLine = `${studentName}\t${listeningTabs}\t${readingTabs}\t${rate}%`;
-  document.getElementById('excel-pure-data').textContent = rawDataLine;
-
+  const finalRowData = `${studentName}\t${listeningCols}\t${readingCols}\t${rate}%`;
+  
+  // 更新备用本地面板数据
+  document.getElementById('excel-pure-data').textContent = finalRowData;
   document.getElementById('excel-visual-row').textContent = `${studentName} | ${selected.map(s => s.q.num).join(' | ')} | ${ALL_READING.map(q => readingAnswers[q.num]||'—').join(' | ')} | ${rate}%`;
-
-  // Google Sheets に送信するパラメータを作成
-  const now2 = new Date();
-  const dateStr = `${now2.getFullYear()}.${String(now2.getMonth()+1).padStart(2,'0')}.${String(now2.getDate()).padStart(2,'0')}`;
-
-  const params = new URLSearchParams({
-    date:      dateStr,
-    name:      studentName,
-    listening: selected.map(s => s.q.num).join(" "),
-    reading:   `${correctCount} / 6`,
-    rate:      `${rate}%`,          // 正答率を追加
-    rawdata:   rawDataLine          // Excel貼り付け用1行データも念のため自動送信に含める
-  });
   
-  // 先頭で定義された SUBMIT_URL を使用して Google Sheets にデータを送信
-  fetch(SUBMIT_URL + "?" + params.toString(), { mode: 'no-cors' })
-    .then(() => console.log("Data synced to Google Sheets successfully."))
-    .catch(err => console.error("Sync failed:", err));
-           
   document.getElementById('reading-results').style.display = 'block';
+
+  // 3. 【全自动发送】通过 Fetch 异步将数据直传 Google Sheet
+  const targetUrl = `${SUBMIT_URL}?rawdata=${encodeURIComponent(finalRowData)}`;
+  const statusElem = document.getElementById('upload-status-bar');
+
+  fetch(targetUrl, { mode: 'no-cors' })
+    .then(() => {
+      // 传输成功状态提示
+      statusElem.style.background = "var(--green-bg)";
+      statusElem.style.color = "var(--green)";
+      statusElem.style.borderColor = "var(--green)";
+      statusElem.innerHTML = "✓ Google スプレッドシートに自動保存されました！";
+    })
+    .catch((err) => {
+      // 传输失败状态提示
+      statusElem.style.background = "#fdf0f0";
+      statusElem.style.color = "var(--red)";
+      statusElem.style.borderColor = "var(--red)";
+      statusElem.innerHTML = "❌ 自動保存に失敗しました。URL設定を確認するか、下の予备ボタンから手動コピーしてください。";
+      console.error(err);
+    });
 }
 
 function copyPureData() {
@@ -594,7 +610,7 @@ function copyPureData() {
 }
 
 /* ══════════════════════════════════════════
-   TOGGLE HELPERS
+   TOGGLE HELPERS & PAGE SWITCH
 ══════════════════════════════════════════ */
 function toggleCollapsible(id) {
   const body   = document.getElementById(`${id}-body`);
@@ -610,9 +626,6 @@ function toggleHint(id, btn) {
   btn.style.color       = isOpen ? 'var(--gold)' : '';
 }
 
-/* ══════════════════════════════════════════
-   PAGE SWITCH
-══════════════════════════════════════════ */
 function showPage(name) {
   if (currentAudio) { currentAudio.pause(); currentAudio = null; currentBtn = null; }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
