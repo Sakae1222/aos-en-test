@@ -25,7 +25,7 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   background: var(--paper);
   color: var(--ink);
-  font-size: 15px;
+  font-size: 18.5px;
   line-height: 1.7;
   min-height: 100vh;
 }
@@ -73,7 +73,7 @@ header {
 
 .brand-main {
   font-family: 'DM Mono', monospace;
-  font-size: 15px;
+  font-size: 18.5px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--white);
@@ -81,7 +81,7 @@ header {
 }
 
 .brand-sub {
-  font-size: 13px;
+  font-size: 16px;
   color: rgba(255,255,255,0.4);
   letter-spacing: 0.05em;
   font-family: 'DM Mono', monospace;
@@ -95,7 +95,7 @@ nav {
 
 .nav-btn {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   background: none;
@@ -117,7 +117,7 @@ nav {
 
 .nav-btn-start {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   background: var(--gold);
@@ -155,7 +155,7 @@ main {
 
 .section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
+  font-size: 29px;
   font-weight: 400;
   font-style: italic;
   color: var(--navy);
@@ -164,7 +164,7 @@ main {
 
 .section-meta {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   color: var(--ink-faint);
   letter-spacing: 0.08em;
   padding-bottom: 2px;
@@ -184,14 +184,14 @@ main {
   background: var(--navy);
   color: var(--white);
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   padding: 3px 10px;
   font-weight: 500;
 }
 
 .pattern-name {
-  font-size: 12px;
+  font-size: 17px;
   font-family: 'DM Mono', monospace;
   color: var(--ink-faint);
   letter-spacing: 0.06em;
@@ -213,7 +213,7 @@ main {
 
 .q-num-label {
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-size: 17px;
   color: var(--navy-mid);
   font-weight: 500;
   padding-top: 3px;
@@ -223,7 +223,7 @@ main {
 
 .q-english {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 22px;
   font-style: italic;
   color: var(--ink);
   line-height: 1.5;
@@ -243,7 +243,7 @@ main {
   padding: 1.5rem;
   color: var(--ink-faint);
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   letter-spacing: 0.06em;
   min-height: 120px;
 }
@@ -270,7 +270,7 @@ main {
 
 .hint-label {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold);
@@ -278,7 +278,7 @@ main {
 }
 
 .hint-text {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--ink-mid);
   line-height: 1.7;
 }
@@ -324,7 +324,7 @@ main {
   transform: translateX(-50%);
   white-space: nowrap;
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 14px;
   background: var(--navy-deep);
   color: var(--white);
   padding: 4px 8px;
@@ -353,7 +353,7 @@ main {
 
 .collapsible-label {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.7);
@@ -373,7 +373,7 @@ main {
 
 .collapsible-toggle {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 14px;
   color: rgba(255,255,255,0.4);
   letter-spacing: 0.08em;
   transition: color 0.15s;
@@ -400,7 +400,7 @@ main {
 .summary-text {
   flex: 1;
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-size: 17px;
   color: var(--ink-mid);
   line-height: 1.9;
   white-space: pre-wrap;
@@ -409,7 +409,7 @@ main {
 .copy-btn {
   flex-shrink: 0;
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   background: none;
   border: 1px solid var(--rule);
   color: var(--ink-faint);
@@ -433,14 +433,14 @@ main {
 
 .exam-date {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   color: var(--ink-faint);
   letter-spacing: 0.06em;
 }
 
 .reshuffle-btn {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   letter-spacing: 0.08em;
   background: none;
   border: 1px solid var(--rule);
@@ -489,14 +489,14 @@ main {
 
 .exam-card-num {
   font-family: 'DM Mono', monospace;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--navy);
 }
 
 .exam-card-pattern {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 14px;
   color: var(--ink-faint);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -530,7 +530,7 @@ main {
 /* hint toggle in exam */
 .hint-toggle-btn {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   background: none;
@@ -559,6 +559,234 @@ main {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--paper); }
 ::-webkit-scrollbar-thumb { background: var(--navy-soft); border-radius: 3px; }
+
+/* ─── STUDENT INFO / START ─── */
+.student-info-wrap {
+  background: var(--white);
+  padding: 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+.student-info-wrap label {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink-mid);
+  margin-bottom: 0.5rem;
+}
+.student-info-wrap input {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 17px;
+  background: var(--paper);
+  margin-right: 0.75rem;
+}
+
+/* ─── EXAM NOTICE ─── */
+.exam-notice {
+  background: var(--navy-pale);
+  border: 1px solid var(--navy-soft);
+  border-radius: 4px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 1.5rem;
+}
+.exam-notice-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 15.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+}
+.exam-notice-list {
+  margin: 0;
+  padding-left: 1.3rem;
+  color: var(--ink-mid);
+  font-size: 16.5px;
+  line-height: 1.85;
+}
+.exam-notice-list li {
+  margin-bottom: 0.55rem;
+}
+.exam-notice-list li:last-child {
+  margin-bottom: 0;
+}
+.start-exam-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  padding: 0.62rem 1.4rem;
+  margin-top: 0.6rem;
+  transition: opacity 0.15s;
+}
+.start-exam-btn:hover { opacity: 0.85; }
+.start-exam-btn:disabled {
+  background: var(--rule);
+  color: var(--ink-faint);
+  cursor: default;
+}
+.start-warning {
+  margin-top: 0.6rem;
+  font-size: 15px;
+  color: var(--red);
+  display: none;
+}
+.start-warning.show { display: block; }
+
+/* ─── TIMER ─── */
+.timer-bar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 180;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--navy-deep);
+  color: var(--white);
+  padding: 0.7rem 1.4rem;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 16px rgba(10,20,50,0.25);
+  transition: background 0.3s;
+}
+.timer-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 15.5px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+.timer-clock {
+  font-family: 'DM Mono', monospace;
+  font-size: 22.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.timer-bar.warning {
+  background: var(--red);
+  animation: timerPulse 1s ease-in-out infinite;
+}
+@keyframes timerPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+/* ─── AUDIO: play-count exhausted ─── */
+.audio-btn.exhausted {
+  opacity: 0.35;
+  cursor: default;
+  background: var(--rule);
+  border-color: var(--rule);
+  color: var(--ink-faint);
+}
+.audio-play-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ─── RECORDING ─── */
+.record-wrap {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1rem;
+  background: var(--navy-pale);
+  border: 1px solid var(--navy-soft);
+  border-radius: 4px;
+}
+.record-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy-mid);
+  margin-bottom: 0.6rem;
+}
+.record-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.record-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  background: var(--white);
+  border: 1.5px solid var(--navy-soft);
+  color: var(--navy);
+  cursor: pointer;
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.15s;
+}
+.record-btn:hover:not(:disabled) { border-color: var(--navy); background: var(--navy-pale); }
+.record-btn:disabled { opacity: 0.4; cursor: default; }
+.record-btn.recording {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+  animation: recPulse 1.2s ease-in-out infinite;
+}
+@keyframes recPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184,50,50,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(184,50,50,0); }
+}
+.record-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.record-status {
+  font-family: 'DM Mono', monospace;
+  font-size: 15.5px;
+  color: var(--ink-mid);
+}
+.record-status.err { color: var(--red); }
+.record-status.ok { color: var(--green); }
+.rerecord-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  background: none;
+  border: 1.5px solid var(--navy-soft);
+  color: var(--navy);
+  cursor: pointer;
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  transition: all 0.15s;
+}
+.rerecord-btn:hover:not(:disabled) { border-color: var(--navy); background: var(--navy-pale); }
+.rerecord-btn:disabled { opacity: 0.35; cursor: default; }
+.rerecord-btn.recording {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+  animation: recPulse 1.2s ease-in-out infinite;
+}
+.record-attempts {
+  font-family: 'DM Mono', monospace;
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  margin-left: auto;
+}
 /* ══════════════════════════════════════════
    SECTION DIVIDER (Listening → Reading)
 ══════════════════════════════════════════ */
@@ -575,7 +803,7 @@ main {
 }
 .section-divider-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
+  font-size: 24.5px;
   font-style: italic;
   color: var(--navy);
   white-space: nowrap;
@@ -588,7 +816,7 @@ main {
   background: var(--navy-pale);
   border-left: 3px solid var(--navy-soft);
   padding: 0.85rem 1rem;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.75;
   color: var(--ink-mid);
   margin-bottom: 0.75rem;
@@ -603,20 +831,20 @@ main {
 }
 .passage-label {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--navy-mid);
   margin-bottom: 0.6rem;
 }
 .passage-text {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.85;
   color: var(--ink);
 }
 
 .r-question {
-  font-size: 15px;
+  font-size: 18.5px;
   font-weight: 500;
   color: var(--ink);
   margin: 0.5rem 0 0.75rem;
@@ -631,7 +859,7 @@ main {
   padding: 7px 10px;
   border: 1px solid var(--rule);
   background: var(--white);
-  font-size: 13px;
+  font-size: 16px;
   color: var(--ink-mid);
 }
 .r-option-correct {
@@ -641,7 +869,7 @@ main {
 }
 .r-option-letter {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 15.5px;
   font-weight: 500;
   color: var(--ink-faint);
   width: 16px;
@@ -649,7 +877,7 @@ main {
 }
 .r-option-correct .r-option-letter { color: var(--green); }
 .r-option-text { flex: 1; line-height: 1.4; }
-.r-correct-mark { font-size: 12px; color: var(--green); flex-shrink: 0; }
+.r-correct-mark { font-size: 17px; color: var(--green); flex-shrink: 0; }
 
 /* ══════════════════════════════════════════
    READING: 試験
@@ -665,7 +893,7 @@ main {
   background: var(--white);
   cursor: pointer;
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   color: var(--ink);
   text-align: left;
   transition: all 0.15s;
@@ -679,7 +907,7 @@ main {
 
 .r-exam-letter {
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--ink-faint);
   width: 18px;
@@ -697,7 +925,7 @@ main {
 }
 .reading-submit-btn {
   font-family: 'DM Mono', monospace;
-  font-size: 12px;
+  font-size: 17px;
   letter-spacing: 0.08em;
   background: var(--navy);
   color: var(--white);
