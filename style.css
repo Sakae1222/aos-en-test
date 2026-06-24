@@ -942,3 +942,167 @@ main {
 .reading-submit-btn:not(:disabled):hover { opacity: 0.85; }
 
 .reading-results { margin-top: 1rem; }
+
+/* ══════════════════════════════════════════
+   MOBILE RESPONSIVE — append to style.css
+   対象：~480px スマートフォン
+══════════════════════════════════════════ */
+
+@media (max-width: 600px) {
+
+  /* ─── HEADER ─── */
+  header {
+    padding: 0 1rem;
+    flex-wrap: wrap;
+  }
+
+  .brand-main { font-size: 15px; }
+  .brand-sub  { font-size: 12px; }
+
+  .header-badge { width: 34px; height: 34px; }
+  .header-badge img { width: 28px; height: 28px; }
+
+  .nav-btn       { padding: 0 0.9rem; font-size: 13px; }
+  .nav-btn-start { padding: 0 1rem;   font-size: 13px; margin: 0.45rem 0 0.45rem 0.5rem; }
+
+  /* ─── MAIN ─── */
+  main { padding: 1.5rem 1rem 5rem; }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-title { font-size: 22px; }
+  .section-meta  { font-size: 13px; }
+
+  /* ─── 問題一覧 ─── */
+  .q-inner {
+    grid-template-columns: 2rem 1fr;   /* 右端の音声ボタン列を消す */
+    grid-template-rows: auto auto;
+  }
+
+  /* 音声ボタンをグリッド外に出して q-body の下に自然に流す */
+  .q-inner > .audio-btn {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+    justify-self: start;
+  }
+
+  .q-english { font-size: 18px; }
+
+  /* ─── EXAM NOTICE ─── */
+  .exam-notice-list { font-size: 14.5px; padding-left: 1.1rem; }
+  .exam-notice-list li { margin-bottom: 0.45rem; }
+
+  /* ─── STUDENT INFO ─── */
+  .student-info-wrap input {
+    max-width: 100%;
+    font-size: 16px;   /* iOS zoom 防止：16px 以上が必須 */
+  }
+  .start-exam-btn { width: 100%; text-align: center; font-size: 16px; }
+
+  /* ─── EXAM CARD：核心修正 ─── */
+  /* 横並び → 縦並びに変更 */
+  .exam-card-body {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  /* 右側の音声ボタン群を横並びに切り替え、カードの上部に移動 */
+  .exam-card-right {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    order: -1;           /* 音声ボタンを画像より上に表示 */
+    align-items: center;
+  }
+
+  /* 縦書きヒントボタンを横書きに戻す */
+  .hint-toggle-btn {
+    writing-mode: horizontal-tb;
+    padding: 6px 14px;
+    height: auto;
+    white-space: normal;
+    width: auto;
+  }
+
+  /* 画像をフル幅で表示 */
+  .exam-img-wrap,
+  .exam-img-wrap .img-placeholder,
+  .img-placeholder { min-height: 160px; }
+
+  .exam-card-left { width: 100%; }
+
+  /* 再生カウント表示 */
+  .audio-play-count { font-size: 12px; }
+
+  /* ─── RECORD WIDGET ─── */
+  .record-controls {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .record-btn,
+  .rerecord-btn {
+    font-size: 15px;
+    padding: 0.55rem 1rem;
+  }
+  .record-attempts {
+    margin-left: 0;   /* 折り返し後は左寄せ */
+    font-size: 12.5px;
+  }
+  .record-status { font-size: 14px; }
+
+  /* ─── TIMER BAR ─── */
+  .timer-bar {
+    width: 100%;
+    border-radius: 0;
+    padding: 0.55rem 1rem;
+    justify-content: center;
+  }
+  .timer-clock { font-size: 19px; }
+  .timer-label { font-size: 13px; }
+
+  /* ─── SECTION DIVIDER ─── */
+  .section-divider { margin: 2rem 0 1.5rem; }
+  .section-divider-text { font-size: 19px; }
+
+  /* ─── READING（問題一覧） ─── */
+  .scenario-block { font-size: 15px; }
+  .r-question     { font-size: 16px; }
+  .r-option,
+  .r-exam-btn     { font-size: 15px; padding: 9px 10px; }
+
+  /* ─── READING（試験）採点ボタン ─── */
+  .reading-submit-btn { width: 100%; font-size: 16px; padding: 13px 20px; }
+
+  /* ─── COLLAPSIBLE (Excel コピー欄) ─── */
+  .collapsible-label { font-size: 13.5px; }
+  .copy-btn          { font-size: 14px; max-width: 100%; }
+  #excel-visual-row  { font-size: 11.5px; word-break: break-all; }
+
+  /* ─── EXAM CARD HEADER ─── */
+  .exam-card-header { flex-wrap: wrap; gap: 0.3rem; padding: 0.6rem 0.9rem; }
+  .exam-card-pattern { font-size: 12px; }
+  .exam-card-num     { font-size: 15px; }
+}
+
+/* ── タブレット向け微調整（601–800px） ── */
+@media (min-width: 601px) and (max-width: 800px) {
+  main { padding: 2rem 1.4rem 5rem; }
+
+  .exam-card-body { gap: 0.9rem; }
+
+  .hint-toggle-btn {
+    writing-mode: horizontal-tb;
+    padding: 6px 12px;
+    height: auto;
+    width: auto;
+  }
+
+  .exam-card-right {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
